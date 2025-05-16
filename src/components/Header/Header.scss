@@ -1,0 +1,43 @@
+.header {
+  padding: 10px 0;
+  margin-bottom: 15px;
+
+  &__progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #666;
+  }
+
+  &__step {
+    font-weight: bold;
+  }
+
+  &__link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    color: #333;
+  }
+
+  @media (min-width: 768px) {
+    padding: 15px 0;
+    margin-bottom: 20px;
+
+    &__progress {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}

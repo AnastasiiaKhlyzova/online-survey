@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# Survey App Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это фронтенд-часть приложения для проведения онлайн-опросов, разработанная на React/TypeScript. Приложение позволяет пользователям оценивать изображения с помощью звездного рейтинга или выбрать вариант "Затрудняюсь ответить".
 
-Currently, two official plugins are available:
+# Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React - библиотека для построения пользовательских интерфейсов
+TypeScript - типизированный JavaScript для повышения надежности кода
+Redux Toolkit - инструмент для управления состоянием приложения
+SCSS - препроцессор CSS для улучшенной стилизации
+Vite - быстрый инструмент сборки для современных веб-приложений
+Jest - платформа для тестирования JavaScript
 
-## Expanding the ESLint configuration
+# Установка и запуск
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Предварительные требования
+Node.js (версия 16 или выше)
+npm (версия 7 или выше)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+# Установка зависимостей
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+npm install
+Запуск в режиме разработки
+npm run dev
+Приложение будет доступно по адресу: http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Сборка для продакшена
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+npm run build
+Собранные файлы будут находиться в директории dist/.
+
+# Тестирование
+
+Запуск тестов
+npm test
+Линтинг и форматирование
+
+# Проверка линтинга
+
+npm run lint
+
+# Исправление линтинга и форматирования
+
+npm run fix
+
+# Ответы на вопросы из тестового задания
+
+Хранение данных для различных типов вопросов
+Для поддержки различных типов вопросов можно использовать единую структуру данных в Redux с полем type, определяющим тип вопроса. Каждый тип вопроса будет иметь свои специфические поля. Это позволит легко добавлять новые типы вопросов и обрабатывать их с помощью switch/case или объекта с обработчиками.
+
+Структура данных для многостраничных анкет
+Для многостраничных анкет оптимально организовать хранение в виде объекта с массивом страниц, где каждая страница содержит массив вопросов. Ответы пользователя можно хранить в отдельной структуре, индексированной по ID вопроса.
+
+Отделение бизнес-логики от отображения
+Бизнес-логику работы фронтенда (поведение разных типов вопросов) можно и нужно отделять от отображения, используя такие подходы как Redux/Context API для управления состоянием, паттерн Container/Presentational или сервисный слой с отдельными хуками для каждого типа вопроса.
